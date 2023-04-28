@@ -95,8 +95,9 @@ class _MainContentState extends State<MainContent> {
         forumUrlController.text.length));
     buffer.write(
         '&exclude_trash=1&nohl=1&source=top&sort=dd&result=topics&noform=1');
-    buffer.write(
-        '"][img]https://4pda.to/static/forum/style_images/f/3-Samsung.png[/img][/url]');
+    buffer.write('"][img]');
+    buffer.write(pictureUrlController.text);
+    buffer.write('[/img][/url]');
     return buffer.toString();
   }
 
@@ -108,6 +109,17 @@ class _MainContentState extends State<MainContent> {
     return Scaffold(
       appBar: AppBar(
         title: Text(Constants.title),
+        actions: [
+          IconButton(
+            onPressed: () {
+              launchUrl(
+                Uri.parse('https://4pda.to/forum/index.php?autocom=fimg&f=3'),
+                mode: LaunchMode.externalApplication,
+              );
+            },
+            icon: const Icon(Icons.insert_photo),
+          ),
+        ],
       ),
       body: ListView(
         padding: const EdgeInsets.all(8.0),
