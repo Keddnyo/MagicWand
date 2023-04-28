@@ -9899,13 +9899,14 @@ SJ:function SJ(a){this.a=a},
 av7(){return new A.uX(new A.a_q(),A.C(t.K,t.Qu))},
 y_:function y_(a,b){this.a=a
 this.b=b},
-vG:function vG(a,b,c,d,e,f){var _=this
+vG:function vG(a,b,c,d,e,f,g){var _=this
 _.d=a
 _.e=b
-_.cy=c
-_.db=d
-_.fr=e
-_.a=f},
+_.CW=c
+_.cy=d
+_.db=e
+_.fr=f
+_.a=g},
 a_q:function a_q(){},
 a_t:function a_t(){},
 zq:function zq(a){var _=this
@@ -37688,7 +37689,7 @@ break
 case null:m=h
 break
 default:m=h}a8=e.gea()
-return new A.vG(g,new A.vB(g,h),a1,A.alI(m,h,!0,j,h,B.p,n,b1,s,h,h,h,h,a9.y,a9.z,a7,a9.b,a9.c,a9.d,a9.r,a9.e,a9.f,h,h,h,d,a2,h,B.j,a3,a4,h,l,h,h,a5,a8,h,!1,!0,h,!0,h).gNG(),B.xC,h)}}
+return new A.vG(g,new A.vB(g,h),"MagicWand",a1,A.alI(m,h,!0,j,h,B.p,n,b1,s,h,h,h,h,a9.y,a9.z,a7,a9.b,a9.c,a9.d,a9.r,a9.e,a9.f,h,h,h,d,a2,h,B.j,a3,a4,h,l,h,h,a5,a8,h,!1,!0,h,!0,h).gNG(),B.xC,h)}}
 A.vB.prototype={
 ae(){var s=null
 return new A.N2(A.a7f(s),A.a7f(s),A.a7f(s),A.a7f(s),B.n)}}
@@ -37711,7 +37712,7 @@ r=r.a.a
 r=""+'[url="https://4pda.to/forum/index.php?act=search&query='+s+"&forums%5B%5D="+B.c.a0(r,B.c.hf(r,"showforum=")+10,r.length)+'&exclude_trash=1&nohl=1&source=top&sort=dd&result=topics&noform=1"][img]https://4pda.to/static/forum/style_images/f/3-Samsung.png[/img][/url]'
 return r.charCodeAt(0)==0?r:r},
 I(a){var s=this,r=null,q=A.fs("MagicWand",r,r,r,r,r,r)
-return new A.x_(new A.to(q,new A.Op(r,r,1/0,56),r),A.amf(A.a([A.a0x(s.d,"https://4pda.to/forum/index.php?showforum=[id]",B.KV,"URL \u0440\u0430\u0437\u0434\u0435\u043b\u0430",1,new A.abS(s),!1),A.a0x(s.e,"Samsung [\u0423\u043c\u043d\u044b\u0435 \u0447\u0430\u0441\u044b]",B.lN,"\u041a\u043b\u044e\u0447\u0435\u0432\u043e\u0435 \u0441\u043b\u043e\u0432\u043e",1,new A.abT(s),!1),A.a0x(s.f,"https://4pda.to/static/forum/style_images/f/3-Samsung.png",B.lN,"URL \u043a\u0430\u0440\u0442\u0438\u043d\u043a\u0438",1,new A.abU(s),!1),new A.uA(new A.abV(s),"\u041e\u0444\u043e\u0440\u043c\u0438\u0442\u044c",r),A.a0x(s.r,"\u0417\u0434\u0435\u0441\u044c \u0431\u0443\u0434\u0435\u0442 \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442",B.lN,"\u0420\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442",r,r,!0),new A.uA(new A.abW(s),"\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c",r)],t.D),B.aS),B.Bn,r)}}
+return new A.x_(new A.to(q,new A.Op(r,r,1/0,56),r),A.amf(A.a([A.a0x(s.d,"https://4pda.to/forum/index.php?showforum=[id]",B.KV,"URL \u0440\u0430\u0437\u0434\u0435\u043b\u0430",1,new A.abS(s),!1),A.a0x(s.e,"Samsung [\u0423\u043c\u043d\u044b\u0435 \u0447\u0430\u0441\u044b]",B.lN,"\u041a\u043b\u044e\u0447\u0435\u0432\u043e\u0435 \u0441\u043b\u043e\u0432\u043e",1,new A.abT(s),!1),A.a0x(s.f,"https://4pda.to/static/forum/style_images/f/3-Samsung.png",B.lN,"URL \u043a\u0430\u0440\u0442\u0438\u043d\u043a\u0438",1,new A.abU(s),!1),new A.uA(new A.abV(s),"\u0421\u043e\u0437\u0434\u0430\u0442\u044c",r),A.a0x(s.r,"\u0417\u0434\u0435\u0441\u044c \u0431\u0443\u0434\u0435\u0442 \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442",B.lN,"\u0420\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442",r,r,!0),new A.uA(new A.abW(s),"\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c",r)],t.D),B.aS),B.Bn,r)}}
 A.abX.prototype={
 $0(){this.a.w=this.b},
 $S:0}
@@ -41549,14 +41550,15 @@ if(n==null)n=q.ax.b
 j=m.a.d
 o=b==null?B.a7:b
 return new A.x1(A.ahT(new A.te(q,o,B.aa,B.S,l,l),n,p),j)},
-U7(a){var s,r=this,q=null,p=r.a,o=p.cy
-o=o.fr
-s=o
+U7(a){var s,r,q=this,p=null,o=q.a,n=o.cy
+n=n.fr
+s=n
 if(s==null)s=B.eR
-p=p.e
-o=r.ga_a()
-r.a.toString
-return new A.yi(q,q,q,new A.abY(),q,q,q,q,q,p,B.GX,q,q,B.Ex,r.ga_g(),"",q,B.LC,s,q,o,q,q,B.oA,!1,!1,!1,!1,r.gZU(),!0,q,q,q,!1,new A.kQ(r,t.bT))},
+n=o.e
+o=o.CW
+r=q.ga_a()
+q.a.toString
+return new A.yi(p,p,p,new A.abY(),p,p,p,p,p,n,B.GX,p,p,B.Ex,q.ga_g(),o,p,B.LC,s,p,r,p,p,B.oA,!1,!1,!1,!1,q.gZU(),!0,p,p,p,!1,new A.kQ(q,t.bT))},
 I(a){var s,r=null,q=A.uP(!1,!1,this.U7(a),r,r,r,r,!0,r,r,new A.abZ(),r,r,r)
 this.a.toString
 s=this.d
