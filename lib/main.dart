@@ -57,6 +57,7 @@ class _MainContentState extends State<MainContent> {
   var textMatchController = TextEditingController();
   var pictureUrlController = TextEditingController();
   var outputTextController = TextEditingController();
+  var outputPictureTextController = TextEditingController();
 
   var allowChangePicUrlRecursively = true;
   setAccess(bool condition) {
@@ -80,10 +81,10 @@ class _MainContentState extends State<MainContent> {
     }
   }
 
-  getText() {
+  getFormattedOutput({bool usePicture = false}) {
     if (forumUrlController.text.isEmpty) return '';
     if (textMatchController.text.isEmpty) return '';
-    if (pictureUrlController.text.isEmpty) return '';
+    if (usePicture && pictureUrlController.text.isEmpty) return '';
 
     var buffer = StringBuffer();
     buffer.write('[url="https://4pda.to/forum/index.php?act=search&query=');
@@ -94,18 +95,121 @@ class _MainContentState extends State<MainContent> {
         forumUrlController.text.indexOf('showforum=') + 10,
         forumUrlController.text.length));
     buffer.write(
-        '&exclude_trash=1&nohl=1&source=top&sort=dd&result=topics&noform=1');
-    buffer.write('"][img]');
-    buffer.write(pictureUrlController.text);
-    buffer.write('[/img][/url]');
+        '&exclude_trash=1&nohl=1&source=top&sort=dd&result=topics&noform=1"]');
+    if (usePicture) {
+      buffer.write('[img]');
+      buffer.write(pictureUrlController.text);
+      buffer.write('[/img]');
+    } else {
+      buffer.write(textMatchController.text);
+    }
+    buffer.write('[/url]');
     return buffer.toString();
   }
 
-  snackbar(String message, SnackBarAction action) =>
+  // getPictureOutput() {
+  //   if (forumUrlController.text.isEmpty) return '';
+  //   if (textMatchController.text.isEmpty) return '';
+  //   if (pictureUrlController.text.isEmpty) return '';
+
+  //   var buffer = StringBuffer();
+  //   buffer.write('[url="https://4pda.to/forum/index.php?act=search&query=');
+  //   buffer.write(Uri.encodeQueryComponent(textMatchController.text,
+  //       encoding: windows1251));
+  //   buffer.write('&forums%5B%5D=');
+  //   buffer.write(forumUrlController.text.substring(
+  //       forumUrlController.text.indexOf('showforum=') + 10,
+  //       forumUrlController.text.length));
+  //   buffer.write(
+  //       '&exclude_trash=1&nohl=1&source=top&sort=dd&result=topics&noform=1');
+  //   buffer.write('"][img]');
+  //   buffer.write(pictureUrlController.text);
+  //   buffer.write('[/img][/url]');
+  //   return buffer.toString();
+  // }
+
+  snackbar(String message, {SnackBarAction? action}) =>
       SnackBar(content: Text(message), action: action);
 
   @override
   Widget build(BuildContext context) {
+    var screenWidth = MediaQuery.of(context).size.width;
+
+    bool isScreenLarge() {
+      return screenWidth > 1000.0;
+    }
+
+    var outputs = Column(
+      children: [
+        OutlineTextField(
+          forumUrlController: outputTextController,
+          readOnly: true,
+          maxLines: null,
+          labelText: 'Код текстом',
+          hintText: 'Здесь будет результат',
+        ),
+        ElevatedFilledButton(
+          onPressed: () async {
+            if (outputTextController.text.isNotEmpty) {
+              await Clipboard.setData(
+                ClipboardData(text: outputTextController.text),
+              );
+              widget.messengerKey.currentState?.showSnackBar(
+                snackbar(
+                  'Скопировано',
+                  action: SnackBarAction(
+                    label: 'Открыть раздел',
+                    onPressed: () {
+                      launchUrl(Uri.parse(forumUrlController.text),
+                          mode: LaunchMode.externalApplication);
+                    },
+                  ),
+                ),
+              );
+            } else {
+              widget.messengerKey.currentState?.showSnackBar(
+                snackbar('Результат пуст'),
+              );
+            }
+          },
+          title: 'Скопировать',
+        ),
+        OutlineTextField(
+          forumUrlController: outputPictureTextController,
+          readOnly: true,
+          maxLines: null,
+          labelText: 'Код картинкой',
+          hintText: 'Здесь будет результат',
+        ),
+        ElevatedFilledButton(
+          onPressed: () async {
+            if (outputPictureTextController.text.isNotEmpty) {
+              await Clipboard.setData(
+                ClipboardData(text: outputPictureTextController.text),
+              );
+              widget.messengerKey.currentState?.showSnackBar(
+                snackbar(
+                  'Скопировано',
+                  action: SnackBarAction(
+                    label: 'Открыть раздел',
+                    onPressed: () {
+                      launchUrl(Uri.parse(forumUrlController.text),
+                          mode: LaunchMode.externalApplication);
+                    },
+                  ),
+                ),
+              );
+            } else {
+              widget.messengerKey.currentState?.showSnackBar(
+                snackbar('Результат пуст'),
+              );
+            }
+          },
+          title: 'Скопировать',
+        ),
+      ],
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text(Constants.title),
@@ -121,89 +225,72 @@ class _MainContentState extends State<MainContent> {
           ),
         ],
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(8.0),
-        children: [
-          OutlineTextField(
-            forumUrlController: forumUrlController,
-            keyboardType: TextInputType.url,
-            onChanged: (text) {
-              if (int.tryParse(text) != null) {
-                forumUrlController.text = '${Constants.forumUrl}$text';
-                forumUrlController.selection = TextSelection.fromPosition(
-                  TextPosition(offset: forumUrlController.text.length),
-                );
-              }
-            },
-            labelText: 'URL раздела',
-            hintText: '${Constants.forumUrl}[id]',
-          ),
-          OutlineTextField(
-            forumUrlController: textMatchController,
-            onChanged: (text) {
-              setPictureUrl();
-            },
-            labelText: 'Ключевое слово',
-            hintText: 'Samsung [Умные часы]',
-          ),
-          OutlineTextField(
-            forumUrlController: pictureUrlController,
-            onChanged: (text) {
-              setAccess(text.isEmpty);
-              setPictureUrl();
-            },
-            labelText: 'URL картинки',
-            hintText:
-                'https://4pda.to/static/forum/style_images/f/3-Samsung.png',
-          ),
-          ElevatedFilledButton(
-            outputTextController: outputTextController,
-            onPressed: () {
-              outputTextController.text = getText();
-            },
-            title: 'Создать',
-          ),
-          OutlineTextField(
-            forumUrlController: outputTextController,
-            readOnly: true,
-            maxLines: null,
-            labelText: 'Результат',
-            hintText: 'Здесь будет результат',
-          ),
-          ElevatedFilledButton(
-            outputTextController: outputTextController,
-            onPressed: () async {
-              if (outputTextController.text.isNotEmpty) {
-                await Clipboard.setData(
-                  ClipboardData(text: outputTextController.text),
-                );
-                widget.messengerKey.currentState?.showSnackBar(
-                  snackbar(
-                    'Скопировано успешно',
-                    SnackBarAction(
-                      label: 'Открыть раздел',
-                      onPressed: () {
-                        launchUrl(Uri.parse(forumUrlController.text),
-                            mode: LaunchMode.externalApplication);
+      body: SingleChildScrollView(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    OutlineTextField(
+                      forumUrlController: forumUrlController,
+                      keyboardType: TextInputType.url,
+                      onChanged: (text) {
+                        if (int.tryParse(text) != null) {
+                          forumUrlController.text =
+                              '${Constants.forumUrl}$text';
+                          forumUrlController.selection =
+                              TextSelection.fromPosition(
+                            TextPosition(
+                                offset: forumUrlController.text.length),
+                          );
+                        }
                       },
+                      labelText: 'URL раздела',
+                      hintText: '${Constants.forumUrl}[id]',
                     ),
-                  ),
-                );
-              } else {
-                widget.messengerKey.currentState?.showSnackBar(
-                  snackbar(
-                    'Результат пуст',
-                    SnackBarAction(
-                      label: 'Закрыть',
-                      onPressed: () {},
+                    OutlineTextField(
+                      forumUrlController: textMatchController,
+                      onChanged: (text) {
+                        setPictureUrl();
+                      },
+                      labelText: 'Ключевое слово',
+                      hintText: 'Samsung [Умные часы]',
                     ),
-                  ),
-                );
-              }
-            },
-            title: 'Скопировать',
-          ),
-        ],
+                    OutlineTextField(
+                      forumUrlController: pictureUrlController,
+                      onChanged: (text) {
+                        setAccess(text.isEmpty);
+                        setPictureUrl();
+                      },
+                      labelText: 'URL картинки',
+                      hintText:
+                          'https://4pda.to/static/forum/style_images/f/3-Samsung.png',
+                    ),
+                    ElevatedFilledButton(
+                      onPressed: () {
+                        outputTextController.text = getFormattedOutput();
+                        outputPictureTextController.text =
+                            getFormattedOutput(usePicture: true);
+                      },
+                      title: 'Создать',
+                    ),
+                    if (!isScreenLarge()) outputs
+                  ],
+                ),
+              ),
+            ),
+            if (isScreenLarge())
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: outputs,
+                ),
+              ),
+          ],
+        ),
       ),
       drawer: const Drawer(),
     );
@@ -325,12 +412,10 @@ class Drawer extends StatelessWidget {
 class ElevatedFilledButton extends StatelessWidget {
   const ElevatedFilledButton({
     super.key,
-    required this.outputTextController,
     required this.onPressed,
     required this.title,
   });
 
-  final TextEditingController outputTextController;
   final Function()? onPressed;
   final String title;
 
