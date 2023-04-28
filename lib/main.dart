@@ -149,7 +149,7 @@ class _MainContentState extends State<MainContent> {
             onPressed: () {
               outputTextController.text = getText();
             },
-            title: 'Оформить',
+            title: 'Создать',
           ),
           OutlineTextField(
             forumUrlController: outputTextController,
