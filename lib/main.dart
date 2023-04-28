@@ -84,7 +84,7 @@ class _MainContentState extends State<MainContent> {
     var buffer = StringBuffer();
     buffer.write('[url="https://4pda.to/forum/index.php?act=search&query=');
     buffer.write(Uri.parse(textMatchController.text).toString());
-    buffer.write('&forums=%5B%5D=');
+    buffer.write('&forums%5B%5D=');
     buffer.write(forumUrlController.text.substring(
         forumUrlController.text.indexOf('showforum=') + 10,
         forumUrlController.text.length));
