@@ -30,6 +30,7 @@ class _MainAppState extends State<MainApp> {
     return MaterialApp(
       scaffoldMessengerKey: messengerKey,
       home: MainContent(messengerKey: messengerKey),
+      title: Constants.title,
       theme: FlexThemeData.light(
         useMaterial3: true,
       ),
