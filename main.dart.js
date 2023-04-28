@@ -37715,7 +37715,7 @@ s=A.B9(B.di,s,B.zy,!0)
 q=q.a.a
 r=""+'[url="https://4pda.to/forum/index.php?act=search&query='+s+"&forums%5B%5D="+B.c.a0(q,B.c.hf(q,"showforum=")+10,q.length)+'&exclude_trash=1&nohl=1&source=top&sort=dd&result=topics&noform=1"][img]'+r.a.a+"[/img][/url]"
 return r.charCodeAt(0)==0?r:r},
-I(a){var s=this,r=null,q=A.fs("MagicWand",r,r,r,r,r,r),p=t.D,o=A.a([A.Zh(r,B.CS,r,new A.abS(),r)],p)
+I(a){var s=this,r=null,q=A.fs("MagicWand",r,r,r,r,r,r),p=t.D,o=A.a([A.Zh(r,B.CW,r,new A.abS(),r)],p)
 return new A.x_(new A.to(q,o,new A.Oq(r,r,1/0,56),r),A.amg(A.a([A.a0y(s.d,"https://4pda.to/forum/index.php?showforum=[id]",B.KX,"URL \u0440\u0430\u0437\u0434\u0435\u043b\u0430",1,new A.abT(s),!1),A.a0y(s.e,"Samsung [\u0423\u043c\u043d\u044b\u0435 \u0447\u0430\u0441\u044b]",B.lO,"\u041a\u043b\u044e\u0447\u0435\u0432\u043e\u0435 \u0441\u043b\u043e\u0432\u043e",1,new A.abU(s),!1),A.a0y(s.f,"https://4pda.to/static/forum/style_images/f/3-Samsung.png",B.lO,"URL \u043a\u0430\u0440\u0442\u0438\u043d\u043a\u0438",1,new A.abV(s),!1),new A.uA(new A.abW(s),"\u0421\u043e\u0437\u0434\u0430\u0442\u044c",r),A.a0y(s.r,"\u0417\u0434\u0435\u0441\u044c \u0431\u0443\u0434\u0435\u0442 \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442",B.lO,"\u0420\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442",r,r,!0),new A.uA(new A.abX(s),"\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c",r)],p),B.aS),B.Bm,r)}}
 A.abY.prototype={
 $0(){this.a.w=this.b},
@@ -41535,7 +41535,7 @@ this.a.toString
 s.push(B.zD)
 s.push(B.zz)
 return s},
-ZR(a,b){return new A.F9(B.CU,b,B.S9,null)},
+ZR(a,b){return new A.F9(B.CT,b,B.S9,null)},
 a_d(a,b){var s,r,q,p,o,n,m=this,l=null,k=m.a.fr,j=A.dI(a),i=j==null?l:j.d
 if(i==null)i=B.y
 if(k!==B.Q5)s=k===B.xB&&i===B.p
@@ -41694,7 +41694,7 @@ a8.a.toString
 if(n===!0){r=c.a
 if(r==null)r=24
 A.ju(b3,B.bo,t.c4).toString
-a1=A.Zh(a9,B.CT,r,a8.gXC(),"Open navigation menu")}else{if(!(!m&&l)){if(r)r=a9
+a1=A.Zh(a9,B.CS,r,a8.gXC(),"Open navigation menu")}else{if(!(!m&&l)){if(r)r=a9
 else r=q.guR()||q.bG$>0
 r=r===!0}else r=!0
 if(r)a1=B.yk
@@ -47754,7 +47754,7 @@ q.toString
 p=k.a
 o=p.d
 n=k.d
-m=A.alY(n?B.om:B.CD)
+m=A.alY(n?B.om:B.CC)
 l=n?"Back":"More"
 l=A.a([new A.Qi(m,new A.aeE(k),l,null)],t.D)
 B.b.O(l,k.a.c)
@@ -75348,17 +75348,17 @@ B.by=new A.pq(2,"translucent")
 B.Ct=new A.uZ(null)
 B.om=new A.dc(57490,!0)
 B.Cw=new A.dc(57491,!0)
-B.CD=new A.dc(58372,!1)
+B.CC=new A.dc(58372,!1)
 B.CL=new A.bO(null,null,null,null,null,B.E,null,null)
 B.on=new A.bO(null,null,null,null,null,B.j,null,null)
 B.CK=new A.bO(24,0,400,0,48,B.j,1,null)
 B.hT=new A.bO(null,null,null,null,null,B.f,null,null)
-B.CB=new A.dc(58182,!1)
+B.CB=new A.dc(58332,!1)
 B.CS=new A.dG(B.CB,null)
-B.CC=new A.dc(58332,!1)
-B.CT=new A.dG(B.CC,null)
-B.CE=new A.dc(58727,!1)
-B.CU=new A.dG(B.CE,null)
+B.CD=new A.dc(58727,!1)
+B.CT=new A.dG(B.CD,null)
+B.CG=new A.dc(59082,!1)
+B.CW=new A.dG(B.CG,null)
 B.ab=A.a(s([]),t.oU)
 B.CZ=new A.jo("\ufffc",null,null,!0,!0,B.ab)
 B.D_=new A.v4(null,null,null,null,null,null,null,B.hO,B.fZ,!1,null,!1,null,null,null,null,null,null,!1,null,null,null,null,null,null,null,null,null,null,null,!1,null)
@@ -76528,10 +76528,10 @@ B.Cu=new A.dc(57487,!1)
 B.CM=new A.dG(B.Cu,null)
 B.Q_=new A.dM("\u041f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u044b",null,null,null,null,null,null,null,null)
 B.HE=new A.dY(B.CM,B.Q_,null)
-B.CF=new A.dc(58780,!1)
-B.CV=new A.dG(B.CF,null)
+B.CE=new A.dc(58780,!1)
+B.CU=new A.dG(B.CE,null)
 B.PT=new A.dM("\u041f\u043e\u043a\u0443\u043f\u043a\u0430",null,null,null,null,null,null,null,null)
-B.HF=new A.dY(B.CV,B.PT,null)
+B.HF=new A.dY(B.CU,B.PT,null)
 B.CA=new A.dc(58113,!1)
 B.CR=new A.dG(B.CA,null)
 B.Q0=new A.dM("\u041d\u0430\u0443\u0448\u043d\u0438\u043a\u0438 \u0438 \u0433\u0430\u0440\u043d\u0438\u0442\u0443\u0440\u044b",null,null,null,null,null,null,null,null)
@@ -76552,10 +76552,10 @@ B.Cv=new A.dc(57489,!1)
 B.CN=new A.dG(B.Cv,null)
 B.Q4=new A.dM("\u0410\u0440\u0445\u0438\u0432",null,null,null,null,null,null,null,null)
 B.HK=new A.dY(B.CN,B.Q4,null)
-B.CG=new A.dc(58843,!1)
-B.CW=new A.dG(B.CG,null)
+B.CF=new A.dc(58843,!1)
+B.CV=new A.dG(B.CF,null)
 B.Q2=new A.dM("\u041f\u043e\u0440\u0442\u0430\u0442\u0438\u0432\u043d\u044b\u0435 \u043a\u043e\u043b\u043e\u043d\u043a\u0438",null,null,null,null,null,null,null,null)
-B.HL=new A.dY(B.CW,B.Q2,null)
+B.HL=new A.dY(B.CV,B.Q2,null)
 B.Cz=new A.dc(57936,!1)
 B.CQ=new A.dG(B.Cz,null)
 B.PV=new A.dM("\u0410\u043a\u0441\u0435\u0441\u0441\u0443\u0430\u0440\u044b",null,null,null,null,null,null,null,null)
