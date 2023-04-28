@@ -88,7 +88,7 @@ class _MainContentState extends State<MainContent> {
     buffer.write(forumUrlController.text.substring(
         forumUrlController.text.indexOf('showforum=') + 10,
         forumUrlController.text.length));
-    buffer.write('&results=topics&sort=dd&nohl=1&exclude_trash=1&noform=1');
+    buffer.write('&exclude_trash=1&source=top&sort=dd&result=topics&noform=1');
     buffer.write(
         '"][img]https://4pda.to/static/forum/style_images/f/3-Samsung.png[/img][/url]');
     return buffer.toString();
