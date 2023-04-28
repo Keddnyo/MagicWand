@@ -117,7 +117,7 @@ class _MainContentState extends State<MainContent> {
                 mode: LaunchMode.externalApplication,
               );
             },
-            icon: const Icon(Icons.insert_photo),
+            icon: const Icon(Icons.wallpaper),
           ),
         ],
       ),
